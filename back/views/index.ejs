@@ -22,7 +22,7 @@
       // The callback will be called every time an update is published
       eventSource.onmessage = e => {
         console.log(e); // do something with the payload
-        document.getElementById('texty').innerHTML = e;
+        document.getElementById('texty').innerHTML = e.data;
       }
     </script>
   </body>
