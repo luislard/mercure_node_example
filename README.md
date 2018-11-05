@@ -10,6 +10,7 @@ cd back && npm i && npm start
 
 docker run \
     -e JWT_KEY='!UnsecureChangeMe!' --rm -e DEMO=1 -e DEBUG=1 -e ADDR=':80' -e ALLOW_ANONYMOUS=1 -e PUBLISH_ALLOWED_ORIGINS='*' \
+    -e CORS_ALLOWED_ORIGINS=* \
     -p 80:80 \
     dunglas/mercure
 ```
