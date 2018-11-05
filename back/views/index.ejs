@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div id="texty"></div>
+    <script>
+      // The subscriber subscribes to updates for the https://example.com/foo topic
+      // and to any topic matching https://example.com/books/{name}
+      const url = new URL('http://localhost/hub');
+      url.searchParams.append('topic', 'messages');
+
+      const text = 'hola';
+      console.log(text);
+
+      const eventSource = new EventSource(url);
+
+      // The callback will be called every time an update is published
+      eventSource.onmessage = e => {
+        console.log(e); // do something with the payload
+        document.getElementById('texty').innerHTML = e;
+      }
+    </script>
+  </body>
+</html>
